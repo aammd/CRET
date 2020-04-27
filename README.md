@@ -4,7 +4,7 @@ Scripts pour le CRET.
 
 ## babillard.R
 
-Script pour générer le babillard des activités en tableau html à partir de la Google spreadsheet.
+Script pour générer le babillard des activités en tableau html à partir de la Google spreadsheet. Le résultat doit être aller dans le fichier *index.html* de la branche *gh-pages*.
 
 ```{r}
 source("https://raw.githubusercontent.com/frousseu/CRET/master/babillard.R",encoding="UTF-8")
