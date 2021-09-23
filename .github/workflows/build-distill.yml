@@ -9,7 +9,7 @@ on:
 name: build-babillard
 
 jobs:
-  distill:
+  babillard:
     runs-on: ubuntu-18.04
     env:
       RSPM: https://packagemanager.rstudio.com/cran/__linux__/bionic/latest
@@ -43,7 +43,7 @@ jobs:
           pak::pkg_system_requirements("pkgdown", execute = TRUE)
         shell: Rscript {0}
 
-      - name: Build Distill website
+      - name: Build that babillard
         run: Rscript -e 'rmarkdown::render("babillard.Rmd")'
 
       - name: Deploy 🚀
