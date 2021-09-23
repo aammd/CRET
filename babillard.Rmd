@@ -4,6 +4,8 @@ output: html_document
 
 ```{r setup, include=FALSE}
 
+library(dplyr)
+
 # find latest
 filenames <- dir("data", full.names = TRUE)
 
@@ -12,7 +14,6 @@ most_recent <- basename(filenames) %>% lubridate::ymd(.) %>% which.min()
 bab_data <- readr::read_csv(filenames[most_recent],
                             col_types = "Dccccccccc")
 
-library(dplyr)
 
 Sys.setlocale("LC_ALL","fr_CA")
 
