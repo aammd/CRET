@@ -17,4 +17,6 @@ Imports:
     DT,
     googlesheets4,
     lubridate,
-    purrr
+    purrr,
+    readr,
+    rmarkdown
