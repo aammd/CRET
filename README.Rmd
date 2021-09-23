@@ -1,0 +1,47 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+
+# CRET
+
+```{r dl_latest_data, include = FALSE}
+bab_data <- googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/1Udz3YHed2MMq7X5eeO8IByIJuyePUa51VKCctZr47IM/edit#gid=0",
+                                      col_types = "cccccccccc")
+readr::write_csv(bab_data, file = paste0("data/", Sys.Date(), ".csv"))
+```
+
+la dernière mise à jour du babillard était **`r Sys.Date()`**
+
+## babillard.R
+
+Script pour générer le babillard des activités en tableau html à partir de la Google spreadsheet. Le résultat doit être aller dans le fichier *index.html* de la branche *gh-pages*.
+
+```{r, eval=FALSE}
+source("https://raw.githubusercontent.com/frousseu/CRET/master/babillard.R",encoding="UTF-8")
+```
+
+## recentsPubs.R
+
+Script pour connaître les publications récentes des profs du CRET.
+
+```{r, eval=FALSE}
+source("https://raw.githubusercontent.com/frousseu/CRET/master/recentPubs.R",encoding="UTF-8")
+```
+
+

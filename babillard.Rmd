@@ -3,10 +3,16 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-library(dplyr)
 
-bab_data <- googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/1Udz3YHed2MMq7X5eeO8IByIJuyePUa51VKCctZr47IM/edit#gid=0",
-                                      col_types = "Dttccccccc")
+# find latest
+filenames <- dir("data", full.names = TRUE)
+
+most_recent <- basename(filenames) %>% lubridate::ymd(.) %>% which.min()
+
+bab_data <- readr::read_csv(filenames[most_recent],
+                            col_types = "Dccccccccc")
+
+library(dplyr)
 
 Sys.setlocale("LC_ALL","fr_CA")
 
@@ -27,8 +33,8 @@ bab_data %>%
   # format times
   mutate(
     Date = paste(lubridate::day(Date), lubridate::month(Date, label = TRUE)),
-    Début = paste0(lubridate::hour(Début), ":", pad2(lubridate::minute)(Début)),
-    Fin = paste0(lubridate::hour(Fin), ":", pad2(lubridate::minute)(Fin))
+    Début = sub(":00$", "", Début),
+    Fin = sub(":00$", "", Fin)
   ) %>%
   DT::datatable(escape = FALSE, rownames = FALSE)
 ```
