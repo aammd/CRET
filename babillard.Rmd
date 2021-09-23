@@ -1,0 +1,34 @@
+---
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(dplyr)
+
+bab_data <- googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/1Udz3YHed2MMq7X5eeO8IByIJuyePUa51VKCctZr47IM/edit#gid=0",
+                                      col_types = "Dttccccccc")
+
+Sys.setlocale("LC_ALL","fr_CA")
+
+pad2 <- function(time_fun) function(d) formatC(time_fun(d), width = 2, format = "d", flag = "0")
+
+# make the presenter a link
+```
+
+```{r echo = FALSE}
+bab_data %>%
+  filter(Date > Sys.Date()) %>%
+  mutate(`Présentateur / Responsable` =
+           paste0("<a href='",Lien_Presentateur,"'>",`Présentateur / Responsable`,"</a>")) %>%
+  select(-Lien_Presentateur) %>%
+  mutate(Détails =
+           paste0("<a href='",Lien_Details,"'>",Détails,"</a>")) %>%
+  select(-Lien_Details) %>%
+  # format times
+  mutate(
+    Date = paste(lubridate::day(Date), lubridate::month(Date, label = TRUE)),
+    Début = paste0(lubridate::hour(Début), ":", pad2(lubridate::minute)(Début)),
+    Fin = paste0(lubridate::hour(Fin), ":", pad2(lubridate::minute)(Fin))
+  ) %>%
+  DT::datatable(escape = FALSE, rownames = FALSE)
+```
