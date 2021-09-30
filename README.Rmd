@@ -28,20 +28,13 @@ readr::write_csv(bab_data, file = paste0("data/", Sys.Date(), ".csv"))
 
 la dernière mise à jour du babillard était **`r Sys.Date()`**
 
-## babillard.R
 
-Script pour générer le babillard des activités en tableau html à partir de la Google spreadsheet. Le résultat doit être aller dans le fichier *index.html* de la branche *gh-pages*.
+<!-- ## recentsPubs.R -->
 
-```{r, eval=FALSE}
-source("https://raw.githubusercontent.com/frousseu/CRET/master/babillard.R",encoding="UTF-8")
-```
+<!-- Script pour connaître les publications récentes des profs du CRET. -->
 
-## recentsPubs.R
-
-Script pour connaître les publications récentes des profs du CRET.
-
-```{r, eval=FALSE}
-source("https://raw.githubusercontent.com/frousseu/CRET/master/recentPubs.R",encoding="UTF-8")
-```
+<!-- ```{r, eval=FALSE} -->
+<!-- source("https://raw.githubusercontent.com/frousseu/CRET/master/recentPubs.R",encoding="UTF-8") -->
+<!-- ``` -->
 
 
