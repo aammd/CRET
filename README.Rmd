@@ -17,7 +17,6 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-ADDING TWO ECO WHATEVERS 
 # CRET
 
 ```{r dl_latest_data, include = FALSE}

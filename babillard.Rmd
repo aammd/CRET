@@ -9,7 +9,7 @@ library(dplyr)
 # find latest
 filenames <- dir("data", full.names = TRUE)
 
-most_recent <- basename(filenames) %>% lubridate::ymd(.) %>% which.min()
+most_recent <- basename(filenames) %>% lubridate::ymd(.) %>% which.max()
 
 bab_data <- readr::read_csv(filenames[most_recent],
                             col_types = "Dccccccccc")
@@ -24,7 +24,7 @@ pad2 <- function(time_fun) function(d) formatC(time_fun(d), width = 2, format = 
 
 ```{r echo = FALSE}
 bab_data %>%
-  filter(Date > Sys.Date()) %>%
+  filter(Date >= Sys.Date()) %>%
   mutate(`Présentateur / Responsable` =
            paste0("<a href='",Lien_Presentateur,"'>",`Présentateur / Responsable`,"</a>")) %>%
   select(-Lien_Presentateur) %>%

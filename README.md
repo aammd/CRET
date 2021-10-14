@@ -3,9 +3,9 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-ADDING TWO ECO WHATEVERS \# CRET
+# CRET
 
-la dernière mise à jour du babillard était **2021-10-08**
+la dernière mise à jour du babillard était **2021-10-14**
 
 <!-- ## recentsPubs.R -->
 <!-- Script pour connaître les publications récentes des profs du CRET. -->
