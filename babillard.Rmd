@@ -26,10 +26,18 @@ pad2 <- function(time_fun) function(d) formatC(time_fun(d), width = 2, format = 
 bab_data %>%
   filter(Date >= Sys.Date()) %>%
   mutate(`Présentateur / Responsable` =
-           paste0("<a href='",Lien_Presentateur,"'>",`Présentateur / Responsable`,"</a>")) %>%
+           if_else(is.na(Lien_Presentateur), 
+                   true = `Présentateur / Responsable`,
+                   false = paste0("<a href='",Lien_Presentateur,"'>",
+                                  `Présentateur / Responsable`,
+                                  "</a>"))) %>%
   select(-Lien_Presentateur) %>%
   mutate(Détails =
-           paste0("<a href='",Lien_Details,"'>",Détails,"</a>")) %>%
+           if_else(is.na(Lien_Details), 
+                   true = Détails,
+                   false = paste0("<a href='",Lien_Details,"'>",
+                                  Détails,
+                                  "</a>"))) %>% 
   select(-Lien_Details) %>%
   # format times
   mutate(
@@ -37,6 +45,6 @@ bab_data %>%
     Début = sub(":00$", "", Début),
     Fin = sub(":00$", "", Fin)
   ) %>% 
-  arrange(Date) %>% 
+  arrange(Date) %>% glimpse() %>% 
   DT::datatable(escape = FALSE, rownames = FALSE)
 ```
