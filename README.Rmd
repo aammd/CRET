@@ -27,7 +27,6 @@ readr::write_csv(bab_data, file = paste0("data/", Sys.Date(), ".csv"))
 
 la dernière mise à jour du babillard était **`r Sys.Date()`**
 
-
 <!-- ## recentsPubs.R -->
 
 <!-- Script pour connaître les publications récentes des profs du CRET. -->

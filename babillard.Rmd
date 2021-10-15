@@ -45,6 +45,6 @@ bab_data %>%
     Début = sub(":00$", "", Début),
     Fin = sub(":00$", "", Fin)
   ) %>% 
-  arrange(Date) %>% glimpse() %>% 
+  arrange(Date) %>% 
   DT::datatable(escape = FALSE, rownames = FALSE)
 ```
