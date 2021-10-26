@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 # CRET
 
 ```{r dl_latest_data, include = FALSE}
-bab_data <- googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/1Udz3YHed2MMq7X5eeO8IByIJuyePUa51VKCctZr47IM/edit#gid=0",
+bab_data <- googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/1LBucPlsJhHIkq5Em0LZ_s4QW_Z9rUP-9TGX67tQAsAQ/edit?resourcekey#gid=1924203793",
                                       col_types = "cccccccccc")
 readr::write_csv(bab_data, file = paste0("data/", Sys.Date(), ".csv"))
 ```
