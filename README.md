@@ -5,7 +5,7 @@
 
 # CRET
 
-la dernière mise à jour du babillard était **2021-12-02**
+la dernière mise à jour du babillard était **2022-01-17**
 
 <!-- ## recentsPubs.R -->
 <!-- Script pour connaître les publications récentes des profs du CRET. -->
